@@ -1,5 +1,8 @@
 package model.user;
 
+import model.order.Order;
+import model.order.ShoppingCart;
+
 import java.util.ArrayList;
 import java.util.List;
 
