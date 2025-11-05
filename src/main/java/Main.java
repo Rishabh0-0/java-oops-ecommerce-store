@@ -28,13 +28,11 @@ import java.util.Scanner;
 public class Main {
 
     // --- Class-level variables ---
-    // We make these 'static' so our static helper methods can access them.
     private static final InventoryService inventory = InventoryService.getInstance();
     private static final Scanner scanner = new Scanner(System.in);
     private static Customer customer;
     private static CartService cartService;
 
-    // Our store's products
     private static Product book;
     private static Product laptop;
     private static Product ebook;
@@ -44,11 +42,6 @@ public class Main {
         mainMenu();
         scanner.close(); // Close the scanner when the app exits
     }
-
-    /**
-     * Initializes the store: creates products, sets up inventory,
-     * registers observers, and creates a customer.
-     */
     private static void setupStore() {
         System.out.println("===== 1. Setting up the Store =====");
 
@@ -76,7 +69,6 @@ public class Main {
         // Load products into the inventory
         inventory.addProduct((PhysicalProduct) book);
         inventory.addProduct((PhysicalProduct) laptop);
-        // Note: We don't add the Ebook to the Physical inventory, as it has no stock.
 
         // Create our customer and their CartService
         customer = new Customer("U001", "javaFan", "fan@test.com", "pass123");
@@ -85,9 +77,6 @@ public class Main {
         System.out.println("Store setup complete. Welcome, " + customer.getUsername() + "!\n");
     }
 
-    /**
-     * Runs the main application loop.
-     */
     private static void mainMenu() {
         boolean running = true;
         while (running) {
