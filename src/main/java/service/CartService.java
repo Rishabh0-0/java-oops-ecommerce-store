@@ -10,9 +10,9 @@ public class CartService{
     private final ShoppingCart cart;
     private final Stack<CartCommand> commandHistory;
 
-    public CartService(ShoppingCart cart, Stack<CartCommand> commandHistory) {
+    public CartService(ShoppingCart cart) {
         this.cart = cart;
-        this.commandHistory = commandHistory;
+        this.commandHistory = new Stack<>();
     }
 
     public void executeCommand(CartCommand command) {
